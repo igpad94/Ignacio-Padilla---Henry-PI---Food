@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0; 
+  left: 0; 
 }
 
 .App-logo {
@@ -36,3 +40,13 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-image: url("./components/styles/assets/bkg1.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+}
+

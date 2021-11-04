@@ -1,0 +1,40 @@
+.card {
+    margin: 20px;
+    padding: 10px;
+    width: 18rem;
+    height: 23rem;
+    border-radius: 5%;
+    background-color: rgba(240, 230, 217, 0.781);
+    color: rgb(104, 57, 13);
+    font-family: "Times New Roman", Times, serif;
+    border: 2px solid rgb(104, 57, 13);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-content:center;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.card:hover{
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.2);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.diets {
+  background-color: rgba(243, 223, 198, 0.65);
+  text-align:center;
+}
+
+.title {
+  text-decoration: underline;
+  text-shadow: 0.3px 0.3px;
+}
+
+.image {
+  border-radius: 3%;
+}

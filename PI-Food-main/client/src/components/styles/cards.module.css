@@ -1,0 +1,23 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+.orders{
+    position: relative;
+    width: 140px;
+    padding: 5px;
+    background-color: rgba(240, 230, 217, 0.781);
+    color: rgb(104, 57, 13);
+    margin: 5px 15px;
+    border: 2px solid none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 12px;
+
+}
+
+.options {
+  background: rgba(238, 202, 155, 0.308);
+}
