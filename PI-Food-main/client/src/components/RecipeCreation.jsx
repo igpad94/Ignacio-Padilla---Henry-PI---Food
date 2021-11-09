@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getDiets, createRecipe, getRecipes } from '../actions';
+import { getDiets, createRecipe, getRecipes, setDietFilter, setOriginFilter } from '../actions';
 import s from './styles/recipeCreation.module.css';
 
 export function validate(input) {
@@ -97,6 +97,8 @@ const handleClick = (e) => {
         diets: []
     })
     dispatch(getRecipes())
+    dispatch(setOriginFilter("All"))
+    dispatch(setDietFilter("All"))
     push("/home");
 };
 
