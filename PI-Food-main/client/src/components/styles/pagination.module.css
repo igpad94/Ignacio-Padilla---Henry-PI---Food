@@ -14,6 +14,18 @@
     font-weight: bold;
 	
 }
+
+.pageSelected{
+	width: 30px;
+	padding: 5px;
+	background-color: rgba(236, 194, 138, 0.781);
+    color: rgb(104, 57, 13);
+	margin: 5px 15px;
+	border: 3px solid rgb(104, 57, 13);
+	border-radius: 5px;
+    font-weight: bold;
+	
+}
 .page:hover {
     box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.2);
     background-color: rgba(241, 236, 229, 0.897);
@@ -23,3 +35,26 @@
     border: 2px solid rgb(104, 57, 13);
 
 }
+
+.navigate{
+	width: 60px;
+	padding: 5px;
+	background-color: rgba(240, 230, 217, 0.781);
+    color: rgb(104, 57, 13);
+	margin: 5px 15px;
+	border: 2px solid none;
+	border-radius: 5px;
+    font-weight: bold;
+	
+}
+
+.navigate:hover {
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.2);
+    background-color: rgba(241, 236, 229, 0.897);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    cursor: pointer;
+    border: 2px solid rgb(104, 57, 13);
+
+}
+

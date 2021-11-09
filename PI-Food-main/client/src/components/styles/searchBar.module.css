@@ -1,0 +1,30 @@
+.searchinput{
+    position: relative;
+    width: 140px;
+    padding: 5px;
+    background-color: rgba(240, 230, 217, 0.781);
+    color: rgb(104, 57, 13);
+    margin-top: 10px ;
+    border: 2px solid none;
+    font-weight: bold;
+    font-size: 12px;
+  
+  }
+
+.searchbutton{
+    position: relative;
+    width: 60px;
+    padding: 5px;
+    background-color: rgba(240, 230, 217, 0.781);
+    color: rgb(104, 57, 13);
+    border: 2px solid none;
+    font-weight: bold;
+    font-size: 12px;
+  
+  }
+.searchbutton:hover {
+    background-color: rgba(241, 236, 229, 0.897);
+    cursor: pointer;
+    border: 2px solid rgb(104, 57, 13);
+
+}

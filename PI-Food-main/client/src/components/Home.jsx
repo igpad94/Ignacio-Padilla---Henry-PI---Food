@@ -1,7 +1,7 @@
 import React, { useEffect }  from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import { getRecipes, getDiets, emptyRecipes } from '../actions';
+import { getRecipes, getDiets, emptyRecipes,  setDietFilter, setOriginFilter  } from '../actions';
 import Cards from './Cards';
 import SearchBar from './SearchBar';
 import s from './styles/home.module.css';
@@ -27,21 +27,29 @@ useEffect (() =>{
 const handleClick = (e) => {
     e.preventDefault();
     dispatch(getRecipes());
+    dispatch(setOriginFilter("All"))
+    dispatch(setDietFilter("All"))
 }
 
     return (
         <div id={s.home}>
-            <h1>Home</h1>
-            <Link to= "/recipe">Create your own recipe</Link>  
-            <button onClick={handleClick}>
+            <h1 id={s.hometitle}>Home</h1>
+            <div className={s.nav}>
+            <Link to= "/recipe">
+                <button className={s.navitems}>
+                Create your own recipe!
+                </button>
+            </Link>  
+            <SearchBar/>
+            <button className={s.navitems} onClick={handleClick}>
                 Reload all recipes
             </button>
-            <SearchBar/>
+            </div>
             { allRecipes.length > 0 ?
             <Cards/> : 
-            <div>
+            <div id={s.loading}>
             Gathering Ingredients..
-            <img src={loading} alt="img not found" widht="150px" height="200" />
+            <img id={s.loadingImg} src={loading} alt="img not found" />
             </div>
             }
         </div>

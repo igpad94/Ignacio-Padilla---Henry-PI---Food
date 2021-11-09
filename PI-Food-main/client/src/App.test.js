@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import store from "./store";
+import RecipeCreation from './components/RecipeCreation';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders a create your own recipe title', () => {
+  render(<Provider store={store}> <BrowserRouter><RecipeCreation /> </BrowserRouter></Provider>);
+  const createTitle = screen.getByText("Create your own Recipe:");
+  expect(createTitle).toBeInTheDocument();
 });

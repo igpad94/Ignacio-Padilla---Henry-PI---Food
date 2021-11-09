@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import {useDispatch} from "react-redux";
-import { getRecipeByName } from '../actions';
+import {useDispatch } from "react-redux";
+import { getRecipeByName, setDietFilter, setOriginFilter } from '../actions';
+import s from './styles/searchBar.module.css';
 
 function SearchBar () {
 
@@ -18,6 +19,8 @@ const handleSubmit = (e) => {
     if (recipe) {
         dispatch(getRecipeByName(recipe.toLowerCase()));
         setRecipe("")
+        dispatch(setDietFilter("All"))
+        dispatch(setOriginFilter("All"))
     }
     else{
         alert("please enter a valid recipe name")
@@ -25,14 +28,14 @@ const handleSubmit = (e) => {
 }   
 
 return (
-    <form onSubmit={handleSubmit}>
-        <input 
+    <form  onSubmit={handleSubmit}>
+        <input className={s.searchinput} 
         type="text"
         placeholder="Search recipes..."
         value={recipe}
         onChange={handleChange}
          />
-         <input type="submit" value="search"/>
+         <input className={s.searchbutton} type="submit" value="search"/>
     </form>
 )
 }

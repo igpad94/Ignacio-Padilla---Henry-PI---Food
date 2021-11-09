@@ -1,10 +1,12 @@
-import { GET_RECIPES, GET_DIETS, GET_RECIPE_BY_NAME, FILTERED_RECIPES_BY_DIET, FILTER_ORIGINAL_RECIPES, ORDER_RECIPES, GET_DETAILS, EMPTY_RECIPES, CREATE_RECIPE } from "../actions/types";
+import { GET_RECIPES, GET_DIETS, GET_RECIPE_BY_NAME, FILTERED_RECIPES_BY_DIET, FILTER_ORIGINAL_RECIPES, ORDER_RECIPES, GET_DETAILS, EMPTY_RECIPES, CREATE_RECIPE, SET_DIET_FILTER, SET_ORIGIN_FILTER } from "../actions/types";
 
 const initialState = {
     recipes : [],
     diets : [],
     fullRecipes: [],
-    recipeById: []
+    recipeById: [],
+    activeDietFilter: "All",
+    activeOriginFilter: "All"
 }
 
 export default function rootReducer(state = initialState, action){
@@ -101,6 +103,16 @@ export default function rootReducer(state = initialState, action){
             return {
                 ...state,
                 recipes: action.payload === "All" ? state.fullRecipes : originalFiltered
+            }
+        case SET_DIET_FILTER:
+            return {
+                ...state,
+                activeDietFilter: action.payload
+            }
+        case SET_ORIGIN_FILTER:
+            return {
+                ...state,
+                activeOriginFilter: action.payload
             }
             default:
                 return state;

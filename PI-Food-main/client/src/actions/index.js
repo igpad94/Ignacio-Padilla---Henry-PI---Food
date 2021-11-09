@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GET_RECIPES, GET_DIETS, GET_RECIPE_BY_NAME, FILTERED_RECIPES_BY_DIET, FILTER_ORIGINAL_RECIPES, ORDER_RECIPES, GET_DETAILS, EMPTY_RECIPES, CREATE_RECIPE } from "./types";
+import { GET_RECIPES, GET_DIETS, GET_RECIPE_BY_NAME, FILTERED_RECIPES_BY_DIET, FILTER_ORIGINAL_RECIPES, ORDER_RECIPES, GET_DETAILS, EMPTY_RECIPES, CREATE_RECIPE, SET_DIET_FILTER, SET_ORIGIN_FILTER } from "./types";
 
 
 export function getRecipes(){
@@ -15,7 +15,6 @@ export function getRecipes(){
 export function createRecipe(payload){
     return async function(){
         let json = await axios.post("http://localhost:3001/recipe",payload);
-        console.log(json)
         return {
             type: CREATE_RECIPE,
             json
@@ -60,6 +59,18 @@ export function filterOriginalRecipes(payload){
 export function OrderRecipes(payload){
     return {
         type: ORDER_RECIPES,
+        payload
+        }
+}
+export function setDietFilter(payload){
+    return {
+        type: SET_DIET_FILTER,
+        payload
+        }
+}
+export function setOriginFilter(payload){
+    return {
+        type: SET_ORIGIN_FILTER,
         payload
         }
 }

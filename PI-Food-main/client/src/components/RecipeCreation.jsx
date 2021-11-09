@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getDiets, createRecipe, getRecipes } from '../actions';
+import s from './styles/recipeCreation.module.css';
 
 export function validate(input) {
     let errors = {};
@@ -100,49 +101,49 @@ const handleClick = (e) => {
 };
 
     return (
-        <div>
-            <span> Create your own Recipe: </span>
-            <div>
-            <label>Title:</label>
-            <input name="title" type="text" onChange={handleChange} value={input.title} />
+        <div className={s.recipeCreation}>
+            <span id={s.createTitle}> Create your own Recipe: </span>
+            <div >
+            <label className={s.itemTitle}>Title:</label>
+            <input className={errors.title ? s.errorInput : s.itemInput} name="title" type="text" onChange={handleChange} value={input.title} />
             {errors.title &&  (
-            <p>{errors.title}</p>
+            <p className={s.error}>{errors.title}</p>
             )}
             </div>
-            <div>
-            <label>Summary:</label>
-            <input name="summary" type="text" onChange={handleChange} value={input.summary}/>
+            <div >
+            <label className={s.itemTitle}>Summary:</label>
+            <input className={errors.summary ? s.errorInput : s.itemInput}name="summary" type="text" onChange={handleChange} value={input.summary}/>
             {errors.summary &&  (
-            <p>{errors.summary}</p>
+            <p className={s.error}>{errors.summary}</p>
             )}
             </div>
             <div>
-            <label>Score:</label>
-            <input name="score" type="number" onChange={handleChange} value={input.score} />
+            <label className={s.itemTitle}>Score:</label>
+            <input className={errors.score ? s.errorInput : s.itemInput}name="score" type="number" onChange={handleChange} value={input.score} />
             {errors.score &&  (
-            <p>{errors.score}</p>
+            <p className={s.error}>{errors.score}</p>
             )}
             </div>
-            <div>
-            <label>Health Score:</label>
-            <input name="healthScore" type="number"onChange={handleChange}  value={input.healthScore} />
+            <div >
+            <label className={s.itemTitle}>Health Score:</label>
+            <input className={errors.healthScore ? s.errorInput : s.itemInput}name="healthScore" type="number"onChange={handleChange}  value={input.healthScore} />
             {errors.healthScore &&  (
-            <p>{errors.healthScore}</p>
+            <p className={s.error}>{errors.healthScore}</p>
             )}
             </div>
-            <div>
-            <label>Instructions:</label>
-            <textarea name="analyzedInstructions" type="text" onChange={e =>handleChange(e)} value={input.analyzedInstructions}/>
+            <div >
+            <label className={s.itemTitle}>Instructions:</label>
+            <textarea rows="10" cols="45" className={errors.analyzedInstructions ? s.errorInput : s.itemInput}name="analyzedInstructions" type="text" onChange={e =>handleChange(e)} value={input.analyzedInstructions}/>
             {errors.analyzedInstructions &&  (
-            <p>{errors.analyzedInstructions}</p>
+            <p className={s.error}>{errors.analyzedInstructions}</p>
             )}
             </div>
-            <div>
-            <label>Image URL (optional):</label>
-            <input name="image" type="text" onChange={handleChange} value={input.image} />
+            <div >
+            <label className={s.itemTitle}>Image URL (optional):</label>
+            <input className={s.itemInput}name="image" type="text" onChange={handleChange} value={input.image} />
             </div>
             <div>
-            <label>Diets:</label>
+            <label className={s.itemTitle}>Diets:</label>
             {
                 allDiets.map(e => {
                     return (
@@ -154,12 +155,12 @@ const handleClick = (e) => {
                 })
             }
             </div>
-            <button onClick={e =>handleClick(e)} 
+            <button className={!input.title ||errors.title || errors.summary || errors.score || errors.healthScore || errors.analyzedInstructions ? s.disabledButton : s.button} onClick={e =>handleClick(e)} 
             disabled={!input.title ||errors.title || errors.summary || errors.score || errors.healthScore || errors.analyzedInstructions }>
                 CREATE!
             </button>
             <Link to="/home">
-            <button>Return Home</button>
+            <button className={s.button}>Return Home</button>
             </Link>
         </div>
     )

@@ -18,6 +18,10 @@
 
 }
 
+.orders:hover {
+  cursor: pointer;
+}
+
 .options {
   background: rgba(238, 202, 155, 0.308);
 }

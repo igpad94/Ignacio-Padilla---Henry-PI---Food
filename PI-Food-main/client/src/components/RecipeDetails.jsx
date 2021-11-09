@@ -4,6 +4,7 @@ import { getDetails } from '../actions';
 import {Link} from "react-router-dom";
 import defaultimage from "./styles/assets/Default.jpg";
 import loading from "./styles/assets/loading.gif";
+import s from './styles/recipeDetails.module.css';
 
 function RecipeDetails({recipeId}) {
     
@@ -16,22 +17,39 @@ useEffect (() =>{
 const recipeById = useSelector (state => state.recipeById)
 
     return (
-        <div>
+        <div id={s.recipeDetails}>
         {recipeById.length ? (
             <div>
-              <h1>{recipeById[0].title}</h1>
+              <h1 id={s.title}>{recipeById[0].title}</h1>
                 <div>
+                    <img id={s.image}src={recipeById[0].image ? recipeById[0].image : defaultimage} alt="img not found" widht="200px" height="300"/>
                     {
                      recipeById[0].createdInDb === true ?
-                     <div>Diets: {recipeById[0].diets.map(e => e.name)}</div>
+                     <div>
+                     <div className={s.titles}>Diets:</div>
+                      {recipeById[0].diets.map(e => " *" + e.name)}
+                     </div>
                      :
-                     <div>Diets: {recipeById[0].diets}</div>
+                     <div>
+                     <div className={s.titles}>Diets:</div>
+                     {recipeById[0].diets.map(e => " *" + e)}
+                     </div>
                     }
-                    <img src={recipeById[0].image ? recipeById[0].image : defaultimage} alt="img not found" widht="150px" height="200"/>
-                    <div>Summary: {recipeById[0].summary}</div>
-                    <div>Score: {recipeById[0].score}</div>
-                    <div>Health Score: {recipeById[0].healthScore}</div>
-                    <div>Steps:</div>
+                    <div> 
+                    <div className={s.titles}>Summary:</div>
+                    <div id={s.summary}> 
+                    {recipeById[0].summary.replace(/<\/?[^>]+(>|$)/g, "")}
+                    </div>
+                    </div>
+                    <div>
+                    <div className={s.titles}>Score:</div>
+                     {recipeById[0].score}
+                     </div>
+                     <div>
+                    <div className={s.titles}>Health Score:</div>
+                    {recipeById[0].healthScore}
+                    </div>
+                    <div className={s.titles}>Steps:</div>
                     {
                     recipeById[0].createdInDb === true ?
                     <div> {recipeById[0].analyzedInstructions} </div> :
@@ -43,13 +61,13 @@ const recipeById = useSelector (state => state.recipeById)
                 </div>     
             </div>
         ) : 
-        <div>
+        <div id={s.loading}>
         Gathering Ingredients..
-        <img src={loading} alt="img not found" widht="150px" height="200" />
+        <img id={s.loadingImg} src={loading} alt="img not found" />
         </div>
         }
         <Link to="/home">
-        <button>Return Home</button>
+        <button id={s.button}>Return Home</button>
         </Link>
         </div>
     )
