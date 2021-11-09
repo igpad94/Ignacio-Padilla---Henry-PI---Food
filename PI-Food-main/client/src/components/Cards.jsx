@@ -33,6 +33,7 @@ const handleFilterDiets = (e) => {
         dispatch(filteredRecipesByDiets(e.target.value))
         dispatch(setDietFilter(e.target.value))
         dispatch(setOriginFilter("All"))
+        setCurrentPage(1)
     } 
     
 const handleFilterOriginals = (e) => {
@@ -40,6 +41,7 @@ const handleFilterOriginals = (e) => {
         dispatch(filterOriginalRecipes(e.target.value))
         dispatch(setOriginFilter(e.target.value))
         dispatch(setDietFilter("All"))
+        setCurrentPage(1)
     } 
 const handleOrder = (e) => {
         e.preventDefault()
