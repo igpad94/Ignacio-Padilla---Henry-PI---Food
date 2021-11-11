@@ -85,7 +85,7 @@ const handleChecked = (e) => {
 
 const handleClick = (e) => {
     e.preventDefault();
-    createRecipe(input)
+    dispatch(createRecipe(input))
     alert("recipe created successfully")
     setInput({
         title: "",

@@ -8,3 +8,4 @@ export const GET_DETAILS = "GET_DETAILS";
 export const EMPTY_RECIPES = "EMPTY_RECIPES";
 export const SET_DIET_FILTER = "SET_DIET_FILTER";
 export const SET_ORIGIN_FILTER = "SET_ORIGIN_FILTER";
+export const CREATE_RECIPE = "CREATE_RECIPE";
